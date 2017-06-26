@@ -1,24 +1,31 @@
 " ============================================================================
-" File:        execute_menuitem.vim
-" Description: plugin for NERD Tree that provides an execute menu item, that
-"              executes system default application for file or directory
-" Maintainer:  Ivan Tkalin <itkalin at gmail dot com>
-" Last Change: 27 May, 2010
+" File:        nerdtree_open.vim
+" Description: Open file in nerdtree with system default app
+" Maintainer:  Linfee
 " ============================================================================
-if exists("g:loaded_nerdtree_shell_exec_menuitem")
+if exists("g:loaded_nerdtree_open")
   finish
 endif
 
-let g:loaded_nerdtree_shell_exec_menuitem = 1
+let g:loaded_nerdtree_open = 1
+
+let g:nerdtree_open#menu_shortcut = get(g:, 'nerdtree_open#menu_shortcut ', '<c-o>')
+
 let s:haskdeinit = system("ps -e") =~ 'kdeinit'
 let s:hasdarwin = system("uname -s") =~ 'Darwin'
 
-call NERDTreeAddMenuItem({
-      \ 'text': 'e(x)ecute',
-      \ 'shortcut': 'x',
-      \ 'callback': 'NERDTreeExecute' })
+" call NERDTreeAddMenuItem({
+"       \ 'text': '(O)pen current node with system default app',
+"       \ 'shortcut': 'O',
+"       \ 'callback': 'NERDTreeOpen'
+"       \ })
+call NERDTreeAddKeyMap({
+      \ 'key': g:nerdtree_open#menu_shortcut,
+      \ 'callback': 'NERDTreeOpen',
+      \ 'quickhelpText': 'Open with system default app',
+      \ 'scope': 'Node' })
 
-function! NERDTreeExecute()
+function! NERDTreeOpen(...)
   let l:oldssl=&shellslash
   set noshellslash
   let treenode = g:NERDTreeFileNode.GetSelected()
