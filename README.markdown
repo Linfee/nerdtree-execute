@@ -5,13 +5,16 @@ Plugin for [NERDTree](https://github.com/scrooloose/nerdtree) that provides an e
 ## Installation
 
 ### Manual install
+
 Unzip into your `.vim` directory
 
 ### Pathogen install
+
 Clone this repo into your `.vim/bundle` directory
 
 ## Usage
-When navigating in NERDTree, select file or directory, press 'm' key, and NERDTree menu will appear. Press 'x' then to execute system default application for selected file/directory, using this plugin. You can open your favourite image editor for images, pdf reader for pdfs etc.
+
+When navigating in NERDTree, select file or directory, press '<c-o>' , it will open the selected file/directory with system default application. Using this plugin, you can open your favourite image editor for images, pdf reader for pdfs etc.
 
 ## Contributing
 
@@ -23,10 +26,4 @@ When navigating in NERDTree, select file or directory, press 'm' key, and NERDTr
 
 ## Self-Promotion
 
-If you like this project, please follow the repository on [GitHub](https://github.com/ivalkeen/nerdtree-execute) and vote for it on
-[vim.org](http://www.vim.org/scripts/script.php?script_id=4672). Also, you might consider visiting my [blog](http://www.tkalin.com) and following me on [Twitter](https://twitter.com/ivalkeen) and [Github](https://github.com/ivalkeen).
-
-
-[1]: http://i.imgur.com/1UrMOpd.png
-[2]: https://github.com/kien/ctrlp.vim
-[3]: https://github.com/gmarik/vundle
+If you like this project, please follow the repository on [GitHub](https://github.com/Linfee/nerdtree-open).
